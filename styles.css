@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* --- Encabezado --- */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px 40px;
+  background-color: #e3e3e3;
+  width: 100%;
+}
+
+.logo {
+  font-family: 'Papyrus', fantasy;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  margin-right: 80px;
+  flex-shrink: 0;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  flex-grow: 1;
+}
+
+.nav-item a {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.nav-item a:hover {
+  background-color: #333;
+}
+
+/* --- Sección Hero --- */
+.hero {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- Sección del título --- */
+.products-heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+/* --- Sección de productos --- */
+.products-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin: 0 20px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  height: 600px;
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.product-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.unavailable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 3;
+  height: 100%;
+}
+
+.yellow-box {
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.gray-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+  flex: 2;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Footer --- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #e3e3e3;
+  color: black;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 2px solid black;
+}
+
+.footer .contact-info {
+  margin-bottom: 10px;
+}
+
+.footer .social-media a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer .social-media a:hover {
+  color: #333;
+}
+
+/* --- MEDIA QUERIES --- */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-item a {
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .image-container,
+  .gray-box {
+    width: 100%;
+    height: auto;
+  }
+
+  .gray-box {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .products-section {
+    grid-template-columns: 1fr;
+    margin: 10px 15px;
+    gap: 25px;
+  }
+
+  .product-item {
+    height: auto;
+    padding: 15px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .footer .social-media a {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+/* --- Sección Hero --- */
+.hero {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px; /* Espacio entre la imagen del hero y el resto del contenido */
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+}
+/* --- Sección Hero actualizada --- */
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Achica la imagen para que no ocupe toda la pantalla */
+.hero-image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px; /* Ajusta este valor según desees */
+  height: auto;
+}
+
+/* Texto debajo de la imagen con animación fade in */
+.hero-text {
+  font-family: 'Papyrus', fantasy;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  max-width: 800px;
+  opacity: 0;               /* Comienza invisible */
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Clase para activar la animación fade in */
+.hero-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* --- Sección Hero para "Sobre nosotros" con overlay --- */
+.hero-overlay {
+  position: relative;
+  text-align: right; /* Alinea el contenido hacia la derecha */
+  margin-bottom: 30px;
+}
+
+.hero-overlay .hero-image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px; /* Puedes ajustar este valor según necesites */
+  height: auto;
+}
+
+.hero-overlay-text {
+  position: absolute;
+  top: 50%;            /* Centrado vertical */
+  right: 10%;          /* A partir del borde derecho */
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);  /* Fondo semitransparente */
+  padding: 10px 20px;
+  color: white;
+  font-family: 'Papyrus', fantasy;
+  font-size: 1.2rem;
+  max-width: 300px;
+  text-align: center;
+  line-height: 1.5;
+}
+/* --- Sección Hero para "Sobre nosotros" --- */
+.hero-overlay {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* En escritorio, la imagen ocupa toda la altura del viewport */
+  overflow: hidden;
+}
+
+.hero-overlay .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsionarse */
+}
+
+.hero-overlay-text {
+  position: absolute;
+  top: 50%;
+  right: 10%; /* Separación desde el borde derecho */
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Recuadro semitransparente */
+  padding: 20px;
+  color: white;
+  font-family: 'Papyrus', fantasy;
+  font-size: 1.5rem;
+  max-width: 400px;
+  text-align: right;
+}
+
+/* Ajustes para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .hero-overlay {
+    position: relative;
+    height: auto; /* La altura se ajusta al contenido */
+  }
+  
+  .hero-overlay .hero-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-overlay-text {
+    position: static; /* Coloca el texto en el flujo normal de la página */
+    transform: none;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+}
