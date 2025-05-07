@@ -3,66 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Los Tangos de Dionisio</title>
+  <title>Tangos de Dionisio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
-    <div class="logo">Tangos de Dionisio</div>
+    <a class="logo" href="index.html">Tangos de Dionisio</a>
+
     <nav class="navigation">
+      <button class="menu-toggle">☰</button>
       <ul>
-        <li class="nav-item"><a href="pagina1.html">Sobre nosotros</a></li>
-        <li class="nav-item"><a href="pagina2.html">Productos</a></li>
-        <li class="nav-item"><a href="contactos.html">Contactos</a></li>
+        <li class="nav-item"><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <!-- Se actualiza el enlace para que redirija a la nueva página de productos -->
+        <li class="nav-item"><a href="productos.html">Productos</a></li>
+        <li class="nav-item"><a href="#contactos">Contactos</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Sección Hero actualizada -->
+  <!-- Sección Hero -->
   <section class="hero">
     <img src="tango-bottle.jpeg" alt="Tangos de Dionisio - Botella de vino" class="hero-image">
     <div class="hero-text">
-      Cuenta la leyenda que Dionisio, dios griego del vino, descubrió la magia de la vid y enseñó a los humanos a transformarla en algo más que bebida: en alegría, en ritual, en arte. Así empezó todo.
-      Desde entonces, cada botella guarda un poco de historia, un poco de mito... y mucho sabor.
+      Cuenta la leyenda que Dionisio descubrió la magia de la vid. Desde entonces, cada botella guarda historia, mito y sabor.
     </div>
   </section>
 
-  <!-- Sección del título "Productos" -->
-  <section class="products-heading">
-    <h2>Productos</h2>
+  <!-- Una sección de vista previa (puedes dejarla o quitarla si solo deseas el slider en productos.html) -->
+  <section id="sobre-nosotros" class="about-content" style="padding:20px; text-align:center;">
+    <h1>Sobre Nosotros</h1>
+    <p class="product-description">
+      En Tangos de Dionisio combinamos la pasión argentina por el vino con el espíritu festivo del tango. Seleccionamos cuidadosamente cada etiqueta para ofrecer una experiencia única, donde tradición y calidad se encuentran en cada copa. Somos más que una tienda: somos un homenaje al placer de compartir buenos momentos con un buen vino.
+    </p>
   </section>
+  
 
-  <!-- Sección de productos -->
-  <section class="products-section">
-    <div class="product-item">
-      <main class="main-content">
-        <div class="image-container">
-          <img src="imagen.jpg" alt="Imagen" class="yellow-box">
-        </div>
-        <div class="gray-box">
-          En el cruce entre el mito y la copa, donde los dioses se reúnen a brindar bajo la luz tenue del atardecer, nace Hijo de Osiris, un vino tinto con alma de ritual antiguo...
-        </div>
-      </main>
-    </div>
-    <div class="product-item">
-      <div class="unavailable">No disponible</div>
-    </div>
-    <div class="product-item">
-      <div class="unavailable">No disponible</div>
-    </div>
+  <!-- Sección de Contacto (vista previa) -->
+  <section id="contactos" class="contact-section">
+    <h2>Contáctanos</h2>
+    <form id="contact-form">
+      <label>Nombre: <input type="text" id="name" required></label>
+      <label>Email: <input type="email" id="email" required></label>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="response"></div>
   </section>
 
   <footer class="footer">
-    <div class="contact-info">
-      <p><strong>Teléfono:</strong> +54 11 1234-5678</p>
-      <p><strong>Ubicación:</strong> Av. Siempre Viva 123, Buenos Aires, Argentina</p>
-    </div>
-    <div class="social-media">
-      <p><strong>Síguenos:</strong></p>
+    <p><strong>Teléfono:</strong> +54 11 1234-5678</p>
+    <p><strong>Ubicación:</strong> Av. Siempre Viva 123, Buenos Aires</p>
+    <p><strong>Síguenos:</strong> 
       <a href="https://facebook.com" target="_blank">Facebook</a> |
       <a href="https://instagram.com" target="_blank">Instagram</a> |
       <a href="https://twitter.com" target="_blank">Twitter</a>
-    </div>
+    </p>
   </footer>
 
   <script src="script.js"></script>

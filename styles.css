@@ -1,3 +1,6 @@
+/* ============================================
+   RESET Y BASE
+============================================ */
 * {
   margin: 0;
   padding: 0;
@@ -9,13 +12,14 @@ body {
   background-color: #f5f5f5;
 }
 
-/* --- Encabezado --- */
+/* ============================================
+   HEADER Y NAVEGACIÓN
+============================================ */
 .header {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   padding: 50px 40px;
   background-color: #e3e3e3;
   width: 100%;
@@ -30,13 +34,25 @@ body {
   flex-shrink: 0;
 }
 
+.navigation {
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .navigation ul {
   display: flex;
   gap: 60px;
   flex-wrap: wrap;
-  justify-content: flex-end;
   list-style: none;
   flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .nav-item a {
@@ -56,21 +72,139 @@ body {
   background-color: #333;
 }
 
-/* --- Sección Hero --- */
+/* ============================================
+   SECCIÓN HERO
+============================================ */
 .hero {
   width: 100%;
   overflow: hidden;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .hero-image {
-  width: 100%;
-  height: auto;
   display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   object-fit: cover;
 }
 
-/* --- Sección del título --- */
+.hero-text {
+  font-family: 'Papyrus', fantasy;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.hero-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   HERO OVERLAY (PÁGINA "SOBRE NOSOTROS")
+============================================ */
+.hero-overlay {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-overlay .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay-text {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  color: white;
+  font-family: 'Papyrus', fantasy;
+  font-size: 1.5rem;
+  max-width: 400px;
+  text-align: right;
+}
+
+/* ============================================
+   SLIDER Y SECCIÓN DE PRODUCTOS
+============================================ */
+/* ============================================
+   SLIDER Y SECCIÓN DE PRODUCTOS
+============================================ */
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Para la sección de productos en el slider,
+   anulado la altura y overflow fijados en la regla genérica de .product-item */
+.products-slider-section .product-item {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  height: auto;       /* Permite que se ajuste a la imagen y a la descripción */
+  overflow: visible;  /* Asegura que se vea todo el contenido */
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
+}
+
+/* Contenedor de la imagen */
+.products-slider-section .product-item .image-container {
+  width: 100%;
+}
+
+/* La imagen se muestra completa sin ocupar todo el ancho, centrada */
+.products-slider-section .product-item .image-container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Estilo para la descripción con tipografía elegante */
+.product-description {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  color: #4a2c2a;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ============================================
+   (Resto del CSS se mantiene igual...)
+============================================ */
+
+
+/* Título */
 .products-heading {
   text-align: center;
   margin-top: 20px;
@@ -80,7 +214,9 @@ body {
   color: black;
 }
 
-/* --- Sección de productos --- */
+/* ============================================
+   (Si se utiliza grid de productos en otra vista)
+============================================ */
 .products-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -91,8 +227,8 @@ body {
 .product-item {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   justify-content: stretch;
+  align-items: stretch;
   width: 100%;
   height: 600px;
   border: 2px solid black;
@@ -117,25 +253,23 @@ body {
   color: white;
   font-size: 1.3rem;
   font-weight: bold;
-  text-align: center;
 }
 
+/* ============================================
+   CONTENIDO PRINCIPAL (Imagen y Descripción)
+============================================ */
 .main-content {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 0;
   width: 100%;
   height: 100%;
 }
 
 .image-container {
+  flex: 3;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  flex: 3;
+  padding: 10px;
   height: 100%;
 }
 
@@ -144,11 +278,10 @@ body {
   max-width: 960px;
   height: 100%;
   object-fit: cover;
-  border: none;
 }
 
 .gray-box {
-  width: 100%;
+  flex: 2;
   max-width: 500px;
   background-color: black;
   color: white;
@@ -156,14 +289,38 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.6;
-  flex: 2;
-  border: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* --- Footer --- */
+/* ============================================
+   CONTACTO / FORMULARIO
+============================================ */
+.contact-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.contact-section input {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
 .footer {
   display: flex;
   flex-direction: column;
@@ -177,11 +334,11 @@ body {
   border-top: 2px solid black;
 }
 
-.footer .contact-info {
-  margin-bottom: 10px;
+.footer p {
+  margin-bottom: 5px;
 }
 
-.footer .social-media a {
+.footer a {
   color: black;
   text-decoration: none;
   font-weight: bold;
@@ -189,209 +346,93 @@ body {
   transition: color 0.3s ease;
 }
 
-.footer .social-media a:hover {
+.footer a:hover {
   color: #333;
 }
 
-/* --- MEDIA QUERIES --- */
+/* ============================================
+   MEDIA QUERIES
+============================================ */
 @media screen and (max-width: 768px) {
   .header {
     flex-direction: column;
-    align-items: center;
     text-align: center;
     padding: 20px 10px;
-    width: 100%;
   }
-
+  
   .logo {
     margin-right: 0;
     margin-bottom: 20px;
   }
-
+  
   .navigation ul {
     flex-direction: column;
     gap: 20px;
-    align-items: center;
     width: 100%;
+    align-items: center;
+    display: none;
   }
-
+  
+  .navigation.active ul {
+    display: flex;
+  }
+  
   .nav-item a {
     width: 90%;
     max-width: 320px;
-    margin: 0 auto;
     font-size: 1rem;
     padding: 12px 0;
   }
-
+  
   .main-content {
     flex-direction: column;
-    align-items: stretch;
   }
-
+  
   .image-container,
   .gray-box {
     width: 100%;
     height: auto;
   }
-
+  
   .gray-box {
     margin-top: 20px;
     padding: 15px;
     font-size: 1rem;
     line-height: 1.5;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
     text-align: center;
   }
-
+  
   .products-section {
     grid-template-columns: 1fr;
     margin: 10px 15px;
     gap: 25px;
   }
-
+  
   .product-item {
     height: auto;
     padding: 15px;
-    margin: 0 auto;
     width: 100%;
   }
-
+  
   .footer {
-    text-align: center;
     padding: 20px;
     margin-top: 20px;
     width: 100%;
   }
-
-  .footer .social-media a {
+  
+  .footer a {
     display: inline-block;
     margin: 5px;
   }
-}
-/* --- Sección Hero --- */
-.hero {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 30px; /* Espacio entre la imagen del hero y el resto del contenido */
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
-}
-/* --- Sección Hero actualizada --- */
-.hero {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Achica la imagen para que no ocupe toda la pantalla */
-.hero-image {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px; /* Ajusta este valor según desees */
-  height: auto;
-}
-
-/* Texto debajo de la imagen con animación fade in */
-.hero-text {
-  font-family: 'Papyrus', fantasy;
-  font-size: 1.2rem;
-  margin: 20px auto;
-  max-width: 800px;
-  opacity: 0;               /* Comienza invisible */
-  transform: translateY(20px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-  text-align: center;
-  padding: 10px;
-}
-
-/* Clase para activar la animación fade in */
-.hero-text.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* --- Sección Hero para "Sobre nosotros" con overlay --- */
-.hero-overlay {
-  position: relative;
-  text-align: right; /* Alinea el contenido hacia la derecha */
-  margin-bottom: 30px;
-}
-
-.hero-overlay .hero-image {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px; /* Puedes ajustar este valor según necesites */
-  height: auto;
-}
-
-.hero-overlay-text {
-  position: absolute;
-  top: 50%;            /* Centrado vertical */
-  right: 10%;          /* A partir del borde derecho */
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);  /* Fondo semitransparente */
-  padding: 10px 20px;
-  color: white;
-  font-family: 'Papyrus', fantasy;
-  font-size: 1.2rem;
-  max-width: 300px;
-  text-align: center;
-  line-height: 1.5;
-}
-/* --- Sección Hero para "Sobre nosotros" --- */
-.hero-overlay {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* En escritorio, la imagen ocupa toda la altura del viewport */
-  overflow: hidden;
-}
-
-.hero-overlay .hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsionarse */
-}
-
-.hero-overlay-text {
-  position: absolute;
-  top: 50%;
-  right: 10%; /* Separación desde el borde derecho */
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Recuadro semitransparente */
-  padding: 20px;
-  color: white;
-  font-family: 'Papyrus', fantasy;
-  font-size: 1.5rem;
-  max-width: 400px;
-  text-align: right;
-}
-
-/* Ajustes para dispositivos móviles */
-@media screen and (max-width: 768px) {
-  .hero-overlay {
-    position: relative;
-    height: auto; /* La altura se ajusta al contenido */
-  }
   
-  .hero-overlay .hero-image {
-    width: 100%;
+  .hero-overlay {
     height: auto;
   }
   
   .hero-overlay-text {
-    position: static; /* Coloca el texto en el flujo normal de la página */
-    transform: none;
+    position: static;
     margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
     max-width: 100%;
-    padding: 10px;
     text-align: center;
   }
 }
